@@ -15,6 +15,8 @@ const app = dva({
   },
 })
 
+// app.use()
+
 // 2. Model
 app.model(require('./models/app'))
 
