@@ -57,6 +57,10 @@ const Login = ({
             <span>Username：guest</span>
             <span>Password：guest</span>
           </p>
+          <p>
+            <span>Username：admin</span>
+            <span>Password：admin</span>
+          </p>
         </Row>
 
       </form>
