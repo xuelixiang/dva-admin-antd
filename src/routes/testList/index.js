@@ -19,6 +19,23 @@ const Index = ({ testList, dispatch, loading, location }) => {
   location.query = queryString.parse(location.search)
   const { query, pathname } = location
 
+  const listProps = {
+    pagination,
+    dataSource: list,
+    loading: loading.effects['testList'],
+    onChange (page) {
+      console.log("page:",page);
+      dispatch(routerRedux.push({
+        pathname,
+        search: queryString.stringify({
+          ...query,
+          page: page.current,
+          pageSize: page.pageSize,
+        }),
+      }))
+    },
+  }
+
   const handleTabClick = (key) => {
     console.log("key:",key);
     dispatch(routerRedux.push({
@@ -32,10 +49,10 @@ const Index = ({ testList, dispatch, loading, location }) => {
   return (<Page inner>
       <Tabs activeKey={query.status === String(EnumPostStatus.statusOne) ? String(EnumPostStatus.statusOne) : String(EnumPostStatus.statusTwo)} onTabClick={handleTabClick}>
         <TabPane tab={<span><Icon type="apple" />StatusTwo</span>} key={String(EnumPostStatus.statusTwo)}>
-          StatusTwo
+          <List {...listProps} />
         </TabPane>
         <TabPane tab={<span><Icon type="android" />StatusOne</span>} key={String(EnumPostStatus.statusOne)}>
-          StatusOne
+          <List {...listProps} />
         </TabPane>
       </Tabs>
     </Page>)
