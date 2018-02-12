@@ -26,5 +26,6 @@ module.exports = {
     v1test: `${APIV1}/test`,
     v2test: `${APIV2}/test`,
     testList: `${APIV1}/testLists`,
+    sexList: `${APIV1}/sexLists`,
   },
 }

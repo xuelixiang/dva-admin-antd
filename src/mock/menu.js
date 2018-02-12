@@ -161,6 +161,13 @@ let database = [
     name: 'Test List',
     route: '/navigation/navigation2/navigation2/testList',
   },
+  {
+    id: '6222',
+    bpid: '622',
+    mpid: '622',
+    name: 'Sex List',
+    route: '/navigation/navigation2/navigation2/sexList',
+  },
 ]
 
 module.exports = {
